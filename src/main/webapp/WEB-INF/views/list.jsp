@@ -1,4 +1,4 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import= "com.mycom.myapp.board.BoardDAO,com.mycom.myapp.board.BoardVO,java.util.*"%>
 <%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -24,16 +24,18 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #006bb3;
+  background-color: black;
   color: white;
 }
+
+
 </style>
 <script>
-	function delete_ok(id)
-	{
-		var a = confirm("정말로 삭제하겠습니까?");
-		if(a) location.href='deleteok/' + id;
-	}
+   function delete_ok(id)
+   {
+      var a = confirm("정말로 삭제하겠습니까?");
+      if(a) location.href='deleteok/' + id;
+   }
 </script>
 </head>
 <body>
@@ -41,30 +43,30 @@
 
 <table id="list" width="90%">
 <tr>
-	<th>과목코드</th>
-	<th>강의이름 </th>
-	<th>교수님 성함</th>
-	<th>강의평 등록일</th>
-	<th>강의평 보기</th>
-	<th>강의평 수정</th>
-	<th>강의평 삭제</th>
+   <th>순번</th>
+   <th>강의 이름 </th>
+   <th>교수님 성함</th>
+   <th>강의평 등록일</th>
+   <th>강의평 보기</th>
+   <th>강의평 수정</th>
+   <th>강의평 삭제</th>
 </tr>
 <c:forEach items="${list}" var="u">
-	<tr>
-		<td>${u.seq}</td>
-		<td>${u.title}</td>
-		<td>${u.nickname}</td>
-		<td>${u.regdate}</td>
-		<td><a class="btn btn-sm btn-primary" href="view/${u.seq}">보기</a></td>
-		<td><a href="editform/${u.seq}">수정</a></td>
-		<td><a href="javascript:delete_ok('${u.seq}')">삭제</a></td>
-	</tr>
+   <tr>
+      <td>${u.seq}</td>
+      <td>${u.title}</td>
+      <td>${u.name}</td>
+      <td>${u.regdate}</td>
+      <td><a class="btn btn-sm btn-primary" href="view/${u.seq}">보기</a></td>
+      <td><a href="editform/${u.seq}">수정</a></td>
+      <td><a href="javascript:delete_ok('${u.seq}')">삭제</a></td>
+   </tr>
 </c:forEach>
 </table>
-<br/><a href="add">상담 신청하기</a>
+<br/><a href="add">강의평 쓰기</a>
 </body>
 <footer style='background-color:#ddd;margin-top:10px;padding:10px;text-align:center'>
-	<p>강의평 게시판</p>
+   <p>강의평 게시판</p>
     <p>조하성 / 최정겸</p>
 </footer> 
 </html>

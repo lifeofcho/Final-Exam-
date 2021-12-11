@@ -5,41 +5,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>
-		function delete_ok(id){
-			var a = confirm("강의평을 정말로 삭제하겠습니까?");
-			if(a) location.href='../deleteok/' + id;
-		}
-	</script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   <script>
+      function delete_ok(id){
+         var a = confirm("강의평을 정말로 삭제하겠습니까?");
+         if(a) location.href='../deleteok/' + id;
+      }
+   </script>
+<title>강의평 - 리스트 보기</title>
 </head>
 <body>
 <div class="container" style='margin-top:50px;min-height:600px'>
-	<img src="../../img/logo.png" alt="logo" id="logo">
-	<h1>개별 관리</h1>
-	<div id="status"> 
-		<a class="btn btn-sm btn-success" id="logout" href="../../login/logout">로그아웃</a>
-	</div>
-	
-	<div class="table-responsive-sm">
-			<c:set var="u" value ="${command}" />
-			<table id="view" class="table table-hover">
-				<tr>
-					<td id="title">강의평:</td>
-					<td>${u.title}</td>A
-				</tr>
-				<tr>
-					<td id="title">교수님 성함:</td>
-					<td>${u.nickname}</td>
-				</tr>
-				<tr>
-					<td id="title">강의평 등록일:</td>
-					<td>${u.nickname}</td>
-				</tr>
-			</table>
-			<a class="btn btn-sm btn-primary" href="../list">강의평 보기</a>
-			<a class="btn btn-sm btn-success" href="../editform/${u.seq}">강의평 수정</a>
-			<a class="btn btn-sm btn-danger" href="javascript:delete_ok('${u.seq}')">강의평 삭제</a>
-	</div>
-</div>
+   <h1>강의평</h1>
+         <c:set var="u" value ="${command}" />
+         <table id="view" class="w3-table-all w3-hoverable">
+            <tr>
+               <td id="title">강의 이름:</td>
+               <td>${u.title}</td>
+            </tr>
+            <tr>
+               <td id="title">과목 코드:</td>
+               <td>${u.code}</td>
+            </tr>
+            <tr>
+               <td id="title">학부:</td>
+               <td>${u.category}</td>
+            </tr>
+            <tr>
+               <td id="title">교수님 성함:</td>
+               <td>${u.name}</td>
+            </tr>
+            <tr>
+               <td id="title">강의 점수:</td>
+               <td>${u.score}</td>   
+            </tr>
+            <tr>
+               <td id="title">강의평:</td>
+               <td>${u.content}</td>
+            </tr>
+         </table>
+         <a class="w3-bar-item w3-button w3-black" href="../list">뒤로 가기</a>
+   </div>
 </body>
 </html>

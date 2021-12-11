@@ -45,10 +45,28 @@ public class LoginController
 		}
 		return returnURL;
 	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signup()
+	{
+		return "signup";
+	}
+	
+	@RequestMapping(value = "/signupok", method = RequestMethod.POST)
+	public String signupok(UserVO vo)
+	{
+		if(userDAO.signup(vo) == 0)
+			System.out.println("회원가입 실패!");
+		else
+			System.out.println("회원가입 성공!");
+		return "redirect:login";
+	}
+	
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session)
 	{
 		session.invalidate();
 		return "redirect:/login/login";
 	}
+	
 }
