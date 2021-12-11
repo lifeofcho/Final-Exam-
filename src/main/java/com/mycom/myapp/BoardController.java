@@ -14,7 +14,6 @@ import com.mycom.myapp.board.BoardVO;
 @RequestMapping(value="/board")
 public class BoardController 
 {
-	//hi
 	@Autowired
 	BoardDAO boardDAO;
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -23,6 +22,14 @@ public class BoardController
 		model.addAttribute("list", boardDAO.getBoardList());
 		return "list";
 	}
+	
+	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+	public String viewBoard(@PathVariable("id") int id, Model model) {
+		BoardVO boardVO = boardDAO.getBoard(id);
+		model.addAttribute("command", boardVO);
+		return "view";
+	}
+	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addPost()
 	{

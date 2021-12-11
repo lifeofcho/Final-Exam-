@@ -4,21 +4,28 @@ import java.util.Date;
 public class BoardVO
 {
 	private int seq;
-	private String title;
-	private String category;
-	private String name;
-	private String nickname;
-	private String password;
-	private String content;
-	private String answer;
-	private Date regdate;
+	private String title; // 강의 이름
+	private String category; // 학부
+	private String name; // 교수님 성함
+	private String code; // 과목 코드
+	private String content; // 강의평
+	private String score; // 강의 점수
 	
-	public String getAnswer() {
-		return answer;
+	public String getCode() {
+		return code;
 	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setCode(String code) {
+		this.code = code;
 	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
+	}
+	private Date regdate; // 강의평 등록일
+	
+
 	public int getSeq() {
 		return seq;
 	}
@@ -43,18 +50,6 @@ public class BoardVO
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getContent() {
 		return content;
 	}
@@ -67,6 +62,4 @@ public class BoardVO
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
-	
 }

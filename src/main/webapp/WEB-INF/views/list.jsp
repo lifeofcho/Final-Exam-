@@ -37,17 +37,17 @@
 </script>
 </head>
 <body>
-<h1>상담게시판-메인 화면</h1>
+<h1>강의평 게시판</h1>
 
 <table id="list" width="90%">
 <tr>
-	<th>Id</th>
-	<th>Title</th>
-	<th>NickName</th>
-	<th>Regdate</th>
-	<th>View</th>
-	<th>Edit</th>
-	<th>Delete</th>
+	<th>과목코드</th>
+	<th>강의이름 </th>
+	<th>교수님 성함</th>
+	<th>강의평 등록일</th>
+	<th>강의평 보기</th>
+	<th>강의평 수정</th>
+	<th>강의평 삭제</th>
 </tr>
 <c:forEach items="${list}" var="u">
 	<tr>
@@ -55,11 +55,16 @@
 		<td>${u.title}</td>
 		<td>${u.nickname}</td>
 		<td>${u.regdate}</td>
-		<td><a href="editform/${u.seq}">글 수정</a></td>
-		<td><a href="javascript:delete_ok('${u.seq}')">글 삭제</a></td>
+		<td><a class="btn btn-sm btn-primary" href="view/${u.seq}">보기</a></td>
+		<td><a href="editform/${u.seq}">수정</a></td>
+		<td><a href="javascript:delete_ok('${u.seq}')">삭제</a></td>
 	</tr>
 </c:forEach>
 </table>
 <br/><a href="add">상담 신청하기</a>
 </body>
+<footer style='background-color:#ddd;margin-top:10px;padding:10px;text-align:center'>
+	<p>강의평 게시판</p>
+    <p>조하성 / 최정겸</p>
+</footer> 
 </html>
