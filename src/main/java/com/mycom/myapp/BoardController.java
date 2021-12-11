@@ -14,6 +14,7 @@ import com.mycom.myapp.board.BoardVO;
 @RequestMapping(value="/board")
 public class BoardController 
 {
+	//hi
 	@Autowired
 	BoardDAO boardDAO;
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
